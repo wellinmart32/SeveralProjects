@@ -1,0 +1,186 @@
+/*
+ *  HOME INTRO
+ *  First screen/above the fold
+ *
+ */
+
+.scroll-wrapper-home-intro {
+  padding: 0;
+  height: 100%;
+
+  .scroll-wrapper-inner {
+    height: 100%;
+  }
+}
+
+.home-intro-link {
+  display: block;
+  height: 100%;
+}
+
+.home-intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+  left: 0;
+
+  .down-indicator {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    left: calc(50% - 13px);
+  }
+
+  h1 {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    top: calc(50% + 35px);
+    font-family: "PxGrotesk-Regular", "Arial", sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,.8);
+    letter-spacing: 0.9px;
+    text-align: center;
+    line-height: 1.3;
+    text-shadow: 1px 1px 5px rgba(0,0,0,.2);
+
+    @media screen and (min-width: $bp-small) {
+      br {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: $bp-medium) {
+      top: calc(50% + 45px);
+      font-size: 18px;
+    }
+
+    @media screen and (min-width: $bp-large) {
+      top: calc(50% + 52px);
+    }
+
+    @media screen and (min-width: $bp-larger) {
+      top: calc(50% + 60px);
+    }
+  }
+
+}
+
+.home-intro-video {
+  flex: 1;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.home-intro-logo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+
+  /* THE FOLLOWING WIDTHS AND BREAKPOINTS ARE COPIED INTO APP.HTML */
+  .home-intro-logo-wrapper,
+  .ustwo-logo-sequence {
+    perspective: 200px;
+    width: 120px;
+
+    @media screen and (min-width: $bp-smaller) {
+      width: 140px;
+    }
+
+    @media screen and (min-width: $bp-medium) {
+      width: 155px;
+    }
+
+    @media screen and (min-width: $bp-large) {
+      width: 190px;
+    }
+
+    @media screen and (min-width: $bp-larger) {
+      width: 225px;
+    }
+  }
+
+  svg {
+    position: relative;
+    z-index: 2;
+    top: auto;
+    left: 0;
+    fill: $offWhite;
+    width: 100%;
+
+    &.layer-background {
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .home-intro-logo-wrapper {
+    .layer-background {
+      filter: blur(4px);
+      opacity: 0.3;
+    }
+  }
+}
+
+.home-hero-call-to-action-link {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  max-width: 800px;
+  width: 80%;
+  text-align: center;
+
+  a {
+    @include buttonStyle(true);
+    @include buttonColor('invert');
+    background-image: url('/images/icon-right-light.svg');
+    display: inline-block;
+    line-height: 1.5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: none;
+  }
+}
+
+/* NOTE: max-width */
+@media screen and (max-width: $bp-medium) {
+  .home-intro-link {
+    width: 100vw;
+    height: 100%;
+
+    .scroll-wrapper {
+      display: block;
+      height: 100%;
+    }
+    .scroll-wrapper-inner {
+      display: block;
+      height: 100%;
+    }
+    .home-intro {
+      position: absolute;
+      display: block;
+      height: 100%;
+    }
+    .home-intro-logo {
+      height: 100%;
+      display:flex;
+      align-items: center;
+      justify-content: center
+    }
+    .videoBackground {
+      height: 100%;
+    }
+  }
+}

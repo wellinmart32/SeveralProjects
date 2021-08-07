@@ -1,0 +1,25 @@
+/*
+ *  CLOSE BUTTON
+ *  Animated X button found in modals
+ *
+ *  Notes: Just the base style. This is extended with another class when
+ *  inserting the component. Also, not possible to use <title> in the <svg>
+ *  as the svg animation sequence will conflict with it so falling back to
+ *  a span with 'Close' text and hiding it off screen.
+ */
+
+.close-button {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+
+  @media screen and (min-width: $bp-medium) {
+    width: 50px;
+    height: 50px;
+  }
+
+  .text {
+    display: inline-block;
+    text-indent: -99999em;
+  }
+}

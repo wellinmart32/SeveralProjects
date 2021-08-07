@@ -1,0 +1,100 @@
+/*
+ *  PAGE: HOME
+ *  Homepage init
+ *
+ */
+
+.page-home {
+
+  @media screen and (min-width: $bp-large) {
+    h1 {
+      width: 80%;
+    }
+  }
+
+  @media screen and (min-width: $bp-larger) {
+    h1 {
+      width: 94%;
+    }
+  }
+}
+
+.home-main-content-wrapper {
+  position: relative;
+  z-index: 1;
+  background-color: $offWhite;
+}
+
+.home-pinned-header-wrapper {
+  height: 100%;
+	// width: 100%;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  right: auto;
+  margin: 0;
+  display: block;
+  position: relative;
+  box-sizing: content-box;
+  // min-height: 790px;
+  // height: 790px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  position: relative;
+  z-index: 1;
+}
+
+.home-pinned-header-inner {
+  position: fixed;
+  margin: auto;
+  top: 0px;
+  left: 0px;
+  bottom: auto;
+  right: auto;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+
+  // Remove position fixed for everything 1024 and below to improve
+  // scroll performance on touch screen devices
+  @media screen and (max-width: $bp-large) {
+    position: absolute;
+  }
+}
+
+/* Inverted styles on ventures background */
+.home-ventures-wrapper {
+  @include darkBackground;
+
+  .home-message-text,
+  .home-carousel-item-text h2,
+  .home-carousel-item-description {
+    color: $offWhite;
+  }
+
+  .section-title {
+    color: $offWhite;
+  }
+
+  .view-carousel-related-page button {
+    @include buttonStyle(true);
+    @include buttonColor('invert');
+    background-image: url('/images/icon-right-light.svg');
+  }
+
+  @media screen and (min-width: $bp-tablet) {
+    .home-carousel-item {
+      .home-carousel-item-image:after {
+        background: linear-gradient(-90deg, $v-solid, transparent);
+      }
+
+      &.even .home-carousel-item-image:after {
+        background: linear-gradient(-90deg, transparent, $v-solid);
+      }
+    }
+  }
+}
+
+.home-message-text {
+  cursor: pointer;
+}

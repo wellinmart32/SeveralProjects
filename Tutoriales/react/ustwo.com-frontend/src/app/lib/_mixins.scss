@@ -1,0 +1,429 @@
+/*
+ *  MIXINS
+ *
+ *  Notes: Try to avoid using 'fixed' attributes within mixins,
+ *         i.e. only use mixins to pass in a value
+ */
+
+/* ARROW ICON */
+/*
+  Using SVG in data uri
+  The function allows the argument from the mixin to be intepolated in the xml and encodes characters
+  to make it compatible with IE and FF. The function removes # and converts the hex colour to a string then
+  the mixin pulls in the colour (note some characters need to be encoded and also make sure 'charset=' is used)
+*/
+
+@function url-friendly-colour($colour) {
+    @return '%23' + str-slice('#{$colour}', 2, -1);
+}
+
+@mixin arrow-icon($colour) {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='10' viewBox='0 0 13 10'%3E%3Cpath d='M 0 0 L 7 10 L 13 0 Z'  fill='#{url-friendly-colour($colour)}' /%3E%3C/svg%3E");
+}
+
+@mixin card-item-category-colours($colour) {
+  .category-tag {
+    background-color: $colour;
+  }
+
+  .title a:hover {
+    color: $colour;
+  }
+
+  .tail a {
+    border-color: $colour;
+    transition: color $hover-duration-quick ease-in-out;
+
+    &:hover {
+      color: $colour;
+    }
+  }
+
+  .image-hover {
+    background-color: rgba($colour, .7);
+  }
+}
+
+@mixin blog-highlight-bubble($type) {
+  &:after {
+
+    position: absolute;
+    right: 35px;
+    top: 35px;
+    width: 110px;
+    height: 110px;
+    padding-top: 65px;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 12px;
+    font-family: $PxGroteskBold;
+    background-color: #ccc;
+
+    @if $type == 'pinned' {
+      content: "Pinned";
+      background-color: $softPot;
+    }
+
+    @if $type == 'featured' {
+      content: 'Featured';
+      background-color: $softHoney;
+    }
+  }
+}
+
+@mixin page-background-colour($page) {
+  @if $page == 'home' {
+    background-image: linear-gradient(30deg, $mare, $jeezz);
+  }
+  @if $page == 'work' {
+    background-image: linear-gradient(30deg, $rain, $softPassion);
+  }
+  @if $page == 'about' {
+    background-image: linear-gradient(30deg, $piglet, $softPassion);
+  }
+  @if $page == 'blog' {
+    background-image: linear-gradient(30deg, $blu, $mare);
+  }
+  @if $page == 'join' {
+    background-image: linear-gradient(30deg, $honey, $softPassion);
+  }
+  @if $page == 'contact' {
+    background-image: linear-gradient(30deg, $pot, $softHoney);
+  }
+  @if $page == 'notfound' {
+    background-image: linear-gradient(30deg, $rain, $softPassion);
+  }
+  @if $page == 'auto' {
+    background-image: linear-gradient(30deg, $honey, $auto);
+  }
+  @if $page == 'legal' {
+    background-image: linear-gradient(30deg, $rain, $softPassion);
+  }
+  @if $page == 'london' {
+    background-image: linear-gradient(30deg, $blu, $mare);
+  }
+  @if $page == 'malmo' {
+    background-image: linear-gradient(30deg, $honey, $softPassion);
+  }
+  @if $page == 'newyork' {
+    background-image: linear-gradient(30deg, $piglet, $softPassion);
+  }
+  @if $page == 'sydney' {
+    background-image: linear-gradient(30deg, $mare, $jeezz);
+  }
+  @if $page == 'losangeles' {
+    background-image: linear-gradient(30deg, $passion, $softOhra);
+  }
+  @if $page == 'tokyo' {
+    background-image: linear-gradient(30deg, $rain, $softRain);
+  }
+  @if $page == 'hot' {
+    background-image: linear-gradient(30deg, $honey, $piglet);
+  }
+  @if $page == 'cold' {
+    background-image: linear-gradient(30deg, $blu, $mare);
+  }
+  @if $page == 'lukewarm' {
+    background-image: linear-gradient(30deg, $mare, $jeezz);
+  }
+  @if $page == 'auto' {
+    background-image: linear-gradient(30deg, #ffbf00, $auto);
+  }
+  @if $page == 'auto2' {
+    background-image: linear-gradient(30deg, #ffbf00, #ffbf00);
+  }
+}
+
+@mixin darkBackground() {
+  background: linear-gradient(135deg, $v-gradient1, $v-gradient2);
+
+  h1, h2, h3, h4, p {
+    color: $offWhite;
+  }
+}
+
+@mixin core-gutter($type: 'padding') {
+  @if $type == 'padding' {
+    padding-left: $core-padding;
+    padding-right: $core-padding;
+  } @else {
+    margin-left: $core-padding;
+    margin-right: $core-padding;
+  }
+}
+
+@mixin core-layout() {
+  display: flex;
+  justify-content: center;
+  @include core-gutter();
+
+  > * {
+    flex: 1;
+    width: 100%;
+    max-width: $grid-max-width;
+    margin: 0 auto;
+  }
+}
+
+@mixin core-vertical-padding($withChildren: false) {
+  @if $withChildren == false {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @media screen and (min-width: $bp-medium) {
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+
+    @media screen and (min-width: $bp-large) {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+  } @else {
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+    @media screen and (min-width: $bp-medium) {
+      padding-top: 90px;
+      padding-bottom: 30px;
+    }
+
+    @media screen and (min-width: $bp-large) {
+      padding-top: 120px;
+      padding-bottom: 40px;
+    }
+
+    > div,
+    > li {
+      padding-bottom: 20px;
+
+      @media screen and (min-width: $bp-medium) {
+        width: 48%;
+        padding-bottom: 40px;
+      }
+
+      @media screen and (min-width: $bp-larger) {
+        width: 23%;
+        padding-bottom: 50px;
+      }
+    }
+  }
+}
+
+@mixin core-vertical-padding-large() {
+  padding-top: 70px;
+  padding-bottom: 70px;
+
+  @media screen and (min-width: $bp-medium) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @media screen and (min-width: $bp-large) {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+}
+
+@mixin thinner-content() {
+  @media screen and (min-width: $bp-medium) {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (min-width: $bp-large) {
+    max-width: 70%;
+  }
+}
+
+@mixin box-shadow() {
+  box-shadow: 5px 5px 15px rgba(0,0,0,.2);
+}
+
+@mixin text-shadow() {
+  text-shadow: 5px 5px 15px rgba(0,0,0,.2);
+}
+
+@mixin buttonColor($color: 'dark') {
+  border: 1px solid $nonBlack;
+  color: $nonBlack;
+
+  &:hover {
+    box-shadow: inset 0 0 0 1px $nonBlack;
+  }
+
+  @if $color == 'invert' {
+    border: 1px solid $offWhite;
+    color: $offWhite;
+
+    &:hover {
+      box-shadow: inset 0 0 0 1px $offWhite;
+    }
+  }
+}
+
+@mixin buttonStyle($arrow: false) {
+  line-height: 40px;
+  outline: 0;
+  @extend .h5;
+  padding: 0 15px;
+
+  @if $arrow == true {
+    padding: 0 40px 0 15px;
+    background-image: url('/images/icon-right-dark.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 13px) 50%;
+    background-size: 16px auto;
+
+    &:hover {
+      animation: buttonArrowHover .2s ease-in-out;
+    }
+  }
+}
+
+@keyframes buttonArrowHover {
+  0% {
+    background-position: calc(100% - 13px) 50%;
+  }
+  50% {
+    background-position: calc(100% - 8px) 50%;
+  }
+  100% {
+    background-position: calc(100% - 13px) 50%;
+  }
+}
+
+@mixin buttonSolid {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none !important;
+}
+
+@mixin spinner-core() {
+  position: relative;
+  box-sizing: content-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+  border-radius: 50%;
+
+  .half {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+
+    .bg {
+      position: absolute;
+      transform-origin: 50% 50%;
+      transform: rotate(0deg);
+    }
+
+    &.left {
+      left: 0;
+      border-radius: 50% 0 0 50%;
+
+      .bg {
+        left: 0;
+      }
+    }
+
+    &.right {
+      right: 0;
+      border-radius: 0 50% 50% 0;
+
+      .bg {
+        right: 0;
+      }
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+  }
+}
+
+@mixin spinner-size($size, $border) {
+  width: $size;
+  height: $size;
+
+  svg {
+    width: $size * 0.5;
+    height: $size * 0.5;
+  }
+
+  .half {
+    width: $size * .5;
+    height: $size;
+
+    .bg {
+      width: $size * .5;
+      height: $size;
+      border-radius: $size;
+    }
+
+    &.left {
+      .bg {
+        border-left: ($size * .5) solid #e5e5e5;
+      }
+    }
+
+    &.right {
+      .bg {
+        border-right: ($size * .5) solid #e5e5e5;
+      }
+    }
+  }
+
+  &:after {
+    left: $border;
+    top: $border;
+    width: $size - (2 * $border);
+    height: $size - (2 * $border);
+    border-radius: $size - (2 * $border) * 0.5;
+  }
+}
+
+@mixin button-border($square: false) {
+  border: 1px solid $nonBlack;
+  margin-top: 10px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 15px;
+  padding: 0 15px;
+
+  @media screen and (min-width: $bp-medium) {
+    height: 36px;
+    line-height: 36px;
+  }
+  @media screen and (min-width: $bp-large) {
+    height: 42px;
+    line-height: 42px;
+  }
+
+  @if $square == true {
+    width: 32px;
+
+    @media screen and (min-width: $bp-medium) {
+      width: 36px;
+    }
+    @media screen and (min-width: $bp-large) {
+      width: 42px;
+    }
+  }
+}
+
+@mixin underlineLink() {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}

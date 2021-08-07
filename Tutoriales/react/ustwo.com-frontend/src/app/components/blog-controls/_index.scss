@@ -1,0 +1,66 @@
+/*
+ *  BLOG CONTROLS
+ *  Blog category filter
+ *
+ *  Notes: This is the containing component the category dropdown button.
+ *         The dropdown list itself is a modal called blog-categories.
+ *  TODO: Bring variables in scope of component
+ */
+
+.blog-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .blog-filter {
+    position: relative;
+    text-transform: uppercase;
+
+    .selected {
+      width: 200px;
+      padding: 0 15px;
+      background-color: transparent;
+      border: 1px solid white;
+      color: $offWhite;
+
+      &:after {
+
+        @include arrow-icon($white);
+
+        position: absolute;
+        right: $blog-controls-horizontal-padding;
+        top: 50%;
+        content: "";
+        display: block;
+        width: 13px;
+        height: 10px;
+        transform: translateY(-50%);
+      }
+    }
+    .selected {
+      cursor: pointer;
+      height: 38px;
+      line-height: 38px;
+    }
+
+    .loading-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -14px;
+      margin-right: 14px;
+    }
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    bottom: calc(#{$blog-controls-margin-bottom} - #{$card-margin-offset});
+
+    .blog-filter {
+
+      .selected {
+        width: $blog-controls-item-width;
+      }
+    }
+  }
+
+}

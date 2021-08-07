@@ -1,0 +1,156 @@
+/*
+ *  CARD LIST
+ *  Grid of 'cards' such as for blog and work pages
+ *
+ */
+
+/* Core Layout */
+.card-list {
+  @include core-layout();
+  display: block;
+  position: relative;
+  z-index: 10;
+
+  > * {
+    width: auto;
+    flex: auto;
+  }
+}
+
+.card-list-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-item {
+  position: relative;
+  display: flex; /* gives all items in a row the same height */
+  flex-direction: column;
+  vertical-align: top;
+  @include box-shadow();
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Size of cards when INSIDE card-list */
+@media screen and (min-width: $bp-medium) {
+  .card-list {
+    display: flex; /* Basic row layout */
+    flex-wrap: wrap;
+    // padding: 0 ($card-gutter-large * .5);
+
+    .card-list-inner:after {
+      content: "";
+    }
+
+    .card-list-inner:after,
+    .card-item {
+      width: 48%;
+    }
+
+    .card-item {
+      // padding: 0 ($card-gutter-large * .5) 30px ($card-gutter-large * .5);
+      margin-bottom: 30px;
+
+      &:last-of-type {
+        margin-bottom: $card-gutter-large;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $bp-larger) {
+  .card-list {
+    .card-list-inner:after,
+    .card-item {
+      width: 32%;
+    }
+  }
+}
+
+
+/* Card Image */
+.card-image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+
+  .rimage {
+    height: $card-image-height;
+  }
+  .image-hover {
+    display: none; /* Remove these hover styles on smaller screens */
+    height: $card-image-height;
+  }
+}
+
+@media screen and (min-width: $bp-large) {
+  /* Show hovers styles for larger screens */
+  .card-item {
+    .image-hover {
+      display: flex;
+    }
+  }
+}
+
+/* Card Details */
+.card-details {
+  position: relative;
+  padding: $card-padding-small;
+  background-color: #fff;
+}
+
+@media screen and (min-width: $bp-medium) {
+  .card-details {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    padding: $card-padding-medium;
+  }
+}
+
+@media screen and (min-width: $bp-large) {
+  .card-details {
+    padding: $card-padding-large;
+  }
+}
+
+
+/* Text styles */
+.card-item {
+  .title {
+    font-size: 24px;
+
+    a {
+      transition: color $hover-duration-quick ease-in-out;
+    }
+  }
+
+  .excerpt {
+    margin: ($card-padding-small * .75) 0;
+    font-size: 26px;
+    line-height: 1.4;
+  }
+
+  .tail {
+    text-align: right;
+    overflow: auto;
+
+    a {
+      display: inline-block;
+      float: left;
+      text-align: left;
+      border-bottom: 2px solid;
+    }
+  }
+}
+
+@media screen and (min-width: $bp-medium) {
+  .card-item {
+    .tail {
+      margin-top: auto;
+    }
+  }
+}

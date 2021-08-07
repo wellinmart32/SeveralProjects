@@ -1,0 +1,125 @@
+/*
+ *  SINGLE COLUMN
+ *  Column of centered text with header
+ *
+ *  Notes: The colours used for title and hr are defaults. Overrides are used
+ *  for case studies.
+ *  TODO: This is used for the top of case study pages. Ideally it shouldn't be
+ *  used, that should be a header/title component maybe. Also clarification is
+ *  needed (with a designer) about when and where the 'content' is text-align
+ *  left/center;
+ */
+
+.single-column .wrapper,
+.hljs { // This is the code block used inside posts
+  max-width: $thin-content-width;
+  margin: 0 auto;
+}
+
+.single-column {
+  padding-left: 6.25%;
+  padding-right: 6.25%;
+  padding-top: $vertical-spacing;
+
+  & + .related-content {
+    margin-top: $vertical-spacing;
+  }
+
+  & + img {
+    padding-top: 0;
+  }
+
+  a {
+    font-family: $PxGroteskBold;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+  }
+
+  h2 {
+    @extend .h3;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .title {
+    max-width: 820px;
+    text-align: center;
+  }
+
+  hr {
+    width: 120px;
+    margin: $title-border-bottom auto;
+    height: 3px;
+    border: none;
+  }
+
+  .content {
+    margin: 0 auto;
+
+    ul, ol {
+      padding-left: 40px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &.intro {
+    padding: 118px 6.25% 55px;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: $bp-small) {
+    &.intro {
+      padding: 168px 6.25% 100px;
+    }
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    & {
+      padding-top: $vertical-spacing-medium;
+
+      &.intro {
+        padding: 168px 6.25% 100px;
+      }
+    }
+
+    &:first-of-type + img {
+      padding-top: 0;
+    }
+
+    & + .related-content {
+      margin-top: $vertical-spacing-medium;
+    }
+  }
+
+  @media screen and (min-width: $bp-large) {
+    & {
+      padding-top: $vertical-spacing-large;
+
+      &.intro {
+        padding: 120px 6.25% 100px;
+      }
+    }
+
+    &:first-of-type + img {
+      padding-top: 0;
+    }
+
+    & + .related-content {
+      margin-top: $vertical-spacing-large;
+    }
+  }
+
+  // Remove default link border when the link is an image
+  // This is added manually in WP
+  .image-link {
+    border: none;
+  }
+}

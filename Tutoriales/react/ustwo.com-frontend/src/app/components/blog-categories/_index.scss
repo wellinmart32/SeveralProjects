@@ -1,0 +1,99 @@
+/*
+ *  BLOG CATEGORIES
+ *  Users can filter blog posts by category
+ *
+ *  Notes: This is not the dropdown component, but just the list itself. It opens
+ *         up inside a modal (fullscreen on small screens, then a more conventional
+ *         looking dropdown list on larger screens).
+ *  TODO: Should this component include the filter button?
+ *  TODO: Bring variables in scope of component
+ */
+
+.modal.modal-blog-categories {
+  z-index: 99999;
+
+  @media screen and (min-width: $bp-large) {
+    background-color: rgba(47,59,85,.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.blog-categories {
+  height: 100%;
+  background: linear-gradient(135deg, $v-gradient1, $v-gradient2);
+
+  .close-button {
+    width: 100%;
+    height: $dropdown-close-height;
+    padding: 0;
+    border: 0;
+
+    svg {
+      width: 60px;
+      height: 60px;
+      fill: $offWhite;
+    }
+
+    &:focus {
+      -webkit-focus-ring-color: rgba(0,0,0,0);
+      outline: 0;
+    }
+  }
+
+  .list {
+    margin: 0;
+    clear: both;
+    list-style-type: none;
+
+    li {
+      position: relative;
+      height: $blog-controls-line-height-small;
+      line-height: $blog-controls-line-height-small;
+      color: $offWhite;
+      @extend .h5;
+
+      &:hover {
+        background-color: $v-solid;
+        color: #fff;
+      }
+
+      @media screen and (min-width: $bp-small) {
+        height: $blog-controls-line-height;
+        line-height: $blog-controls-line-height;
+      }
+
+      /* This spits out the blog category class and its paired colour from the
+      $blog-categories object in variables.scss */
+      @each $category, $colour in $blog-categories {
+        &.#{$category} a:before {
+          background-color: #{$colour};
+        }
+      }
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0 $blog-controls-horizontal-padding;
+
+      &:before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+        margin-right: 10px;
+        background-color: #000;
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-large) {
+    height: auto;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.1);
+    cursor: pointer;
+    width: 250px;
+  }
+}

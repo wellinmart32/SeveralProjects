@@ -1,0 +1,16 @@
+@import "./scss/reset";
+@import "./scss/variables";
+@import"./scss/_categorychips";
+
+.active {
+  border: 1px solid $default_white;
+}
+
+.container-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+

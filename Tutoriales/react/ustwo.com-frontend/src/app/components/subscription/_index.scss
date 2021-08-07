@@ -1,0 +1,145 @@
+/*
+ *  SUBSCRIPTION
+ *  So users can subscribe to the ustwo mailing list
+ *
+ *  Notes: Requires functionality and visual states to handle the full submission within the website rather
+ *  than the current 'first-slice' which sends the user to a mailchimp page for confirmation.
+ *
+ *  Animation icon: height = 240px, width = 6237px with 27 frames. Divide dimensions by 3.
+ */
+
+
+@keyframes iconAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2002px 0;
+  }
+}
+
+
+.subscription {
+  $input-height: 40px;
+  $submit-button-width-small: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  font-size: 18px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, $navy, $piglet);
+  color: $offWhite;
+  @include box-shadow();
+
+  .icon {
+    width: 77px;
+    height: 80px;
+    margin: 0 auto 30px auto;
+    background-size: 2079px 80px;
+
+    &.animate {
+      animation: iconAnimation 1.5s steps(26) 1;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  h2,
+  p {
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  p {
+    max-width: 480px;
+    padding: 0;
+    margin-bottom: 50px;
+  }
+
+  form {
+    display: flex;
+    max-width: 480px;
+  }
+
+  .label {
+    display: none;
+  }
+
+  .email,
+  .submit,
+  .submit:after {
+    height: $input-height;
+  }
+
+  .email {
+    flex: 1;
+    background: transparent;
+    color: $offWhite;
+    border-bottom: 2px solid white;
+    margin-right: 10px;
+    padding: 0;
+    width: 150px;
+
+    @media screen and (min-width: $bp-small) {
+      width: auto;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $offWhite;
+    }
+    &::-moz-placeholder {
+      color: $offWhite;
+    }
+    &:-ms-input-placeholder {
+      color: $offWhite;
+    }
+    &:-moz-placeholder {
+      color: $offWhite;
+    }
+  }
+
+  .submit {
+    // width: $submit-button-width-small;
+
+    @include buttonStyle(true);
+    @include buttonColor('invert');
+    background: transparent url("/images/icon-right-light.svg") no-repeat 50% 50%;
+    padding: 0 20px 0 20px;
+    background-size: 15px 15px;
+
+    .submit-text {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $bp-small) {
+    .email {
+      margin-right: 20px;
+    }
+  }
+}
+
+.subscription-wrapper {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 50px 20px 68px 20px;
+
+  @media screen and (min-width: $bp-small) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media screen and (min-width: $bp-tablet) {
+    max-width: 480px;
+  }
+  @media screen and (min-width: $bp-medium) {
+    max-width: 510px;
+  }
+}

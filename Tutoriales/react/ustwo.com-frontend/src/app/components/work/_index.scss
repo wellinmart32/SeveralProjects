@@ -1,0 +1,207 @@
+/*
+ *  PAGE: WORK
+ *  Landing page to see ustwo proposition to potential clients and showcase past projects
+ *  and areas of interest/verticals
+ *
+ */
+
+ .scroll-wrapper-work-hero {
+   padding: 0;
+   background-color: $offWhite;
+   height: 100%;
+
+   .scroll-wrapper-inner {
+     height: 100%;
+   }
+ }
+
+.page-work {
+  @media screen and (min-width: $bp-large) {
+    h1 {
+      width: 75%;
+    }
+  }
+
+  @media screen and (min-width: $bp-larger) {
+    h1 {
+      width: 75%;
+    }
+  }
+}
+
+.page-work {
+  height: 100%; // For hero scroll under content
+
+  h2 {
+    @extend .h3;
+  }
+
+  .hero {
+    // @include page-background-colour(work);
+
+    .rimage {
+      max-width: 600px;
+      opacity: .7;
+    }
+
+    .down-indicator {
+      z-index: 2;
+    }
+  }
+
+  .hero + .single-column {
+    background: $offWhite;
+  }
+
+  .single-column .content {
+    text-align: left;
+  }
+
+  .card-list {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    .card-list {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+  }
+
+  @media screen and (min-width: $bp-large) {
+    .card-list {
+      padding-top: 100px;
+      padding-bottom: 85px;
+    }
+  }
+
+  .work-case-studies {
+    flex-direction: column;
+    display: flex;
+  }
+}
+
+.work-whatwedo {
+  background: white;
+}
+
+.work-whatwedo,
+.work-contact {
+  @include core-layout();
+  flex-direction: column;
+}
+
+.work-contact {
+  margin-bottom: 60px;
+
+  @media screen and (min-width: $bp-large) {
+    margin-bottom: 100px;
+  }
+}
+
+.page-work-controls {
+  padding: 70px 0 0 0;
+  background-color: white;
+}
+
+.work-item-filter {
+  text-align: center;
+
+  button {
+    outline: 0;
+    @extend .h5;
+    padding: 0 15px;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid transparent;
+
+    &.selected {
+      border-color: $nonBlack
+    }
+
+    @media screen and (min-width: $bp-large) {
+      font-size: 14px;
+    }
+  }
+}
+
+.work-hero {
+  .hero {
+    @include page-background-colour(work);
+
+    .rimage {
+      max-width: 800px;
+    }
+
+    .down-indicator {
+      z-index: 2;
+    }
+
+    h1 {
+      width: 67%;
+    }
+  }
+
+  .hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-image: url('/images/join-us/hero-mobile.png');
+    background-repeat: no-repeat;
+    background-position: 50% bottom;
+    background-size: 100% auto;
+    width: 48%;
+    max-width: 300px;
+  }
+
+  @media screen and (min-width: $bp-tablet) {
+    .hero-image {
+      &:after {
+        width: 65px;
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    .hero-image {
+      &:after {
+        bottom: 8%;
+        transform: translateX(-110px);
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-large) {
+    .hero {
+      h1 {
+        width: 60%;
+      }
+    }
+    .hero-image {
+      background-image: url('/images/join-us/hero-main.png');
+      width: 500px;
+      right: auto;
+      left: 60%;
+      max-width: none;
+      background-position: 0 70%;
+
+      &:before {
+        content: "";
+        position: absolute;
+        background-image: url('/images/join-us/hero-phone-inner.jpg'); // 508 x 902
+        background-size: 100% auto;
+        right: 48px;
+        top: calc(70% - 328px);
+        width: 224px;
+        height: 397px;
+      }
+
+      &:after {
+        bottom: 10%;
+        transform: translateX(-60px);
+      }
+    }
+  }
+}

@@ -1,0 +1,193 @@
+/*
+ *  CONTACT BLOCK
+ *
+ */
+
+.scroll-wrapper-contact-block {
+  padding: 0;
+
+  .scroll-wrapper-inner {
+    max-width: none;
+  }
+}
+
+.contact-block {
+  position: relative;
+  z-index: 10;
+  background-color: $veryDarkGrey;
+  color: $offWhite;
+  @include core-layout();
+
+  .home-text-block {
+    padding: 60px 0;
+  }
+
+  h2 .plane {
+    fill: $honey;
+    width: 42px;
+    height: 42px;
+    transform: translateY(5px);
+    margin-left: 5px;
+  }
+
+  @media screen and (min-width: $bp-smaller) {
+    h2 {
+      font-size: 28px;
+    }
+  }
+
+  /* redefine the following font sizes so we can have the above */
+  @media screen and (min-width: $bp-medium) {
+    h2 {
+      font-size: 36px;
+    }
+  }
+
+  @media screen and (min-width: $bp-larger) {
+    h2 {
+      font-size: 44px;
+    }
+  }
+
+  @media screen and (min-width: $bp-small) {
+    .home-text-block {
+      padding: 80px 0;
+    }
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    .home-text-block {
+      padding: 150px 0;
+    }
+  }
+
+  @media screen and (min-width: $bp-larger) {
+    .home-text-block {
+      padding: 180px 0;
+    }
+    h2 {
+      width: 90%;
+    }
+    h2 .plane {
+      fill: $honey;
+      transform: translateY(2px);
+      margin-left: 10px;
+    }
+  }
+}
+
+.contact-block-link {
+  cursor: pointer;
+
+  h2 {
+    .contact-block-email {
+      font-size: 17px;
+    }
+  }
+
+  @media screen and (min-width: $bp-smaller) {
+    h2 {
+      .contact-block-email {
+        font-size: 20px;
+      }
+    }
+  }
+
+  /* redefine the following font sizes so we can have the above */
+  @media screen and (min-width: $bp-medium) {
+    h2 {
+      .contact-block-email {
+        font-size: 30px;
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-larger) {
+    h2 {
+      .contact-block-email {
+        font-size: 40px;
+      }
+    }
+  }
+}
+
+.contact-block-email {
+  position: relative;
+  display: inline-block;
+
+  // Removed for the moment as it's not a link
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   height: 3px;
+  //   width: 100%;
+  //   background-image: linear-gradient(to right, $piglet, $honey);
+  // }
+
+  span::selection {
+    color: white;
+    background-color: $honey;
+  }
+}
+
+.contact-block-image {
+  position: relative;
+  display: block;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: $veryDarkGrey;
+  margin: 30px auto 0 auto;
+  transform:translate3d(0,0,0);
+
+  .gradient-background-sequence {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 220px;
+    opacity: 0.5;
+  }
+}
+.contact-block-image-sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 220px;
+  background: url('/images/sky.svg') repeat-x 440px 0;
+}
+.contact-block-image-buildings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 440px;
+  height: 220px;
+  background: url('/images/sky-background.png') repeat-x 0 0;
+  background-size: 220px 220px;
+  animation: buildingsMove 20s infinite;
+  animation-timing-function: linear;
+}
+
+@media screen and (min-width: $bp-large) {
+  .contact-block-image {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100px;
+  }
+}
+
+@keyframes buildingsMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-220px);
+  }
+}

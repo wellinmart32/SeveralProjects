@@ -1,0 +1,106 @@
+/* ------------------------------------------------------------ *\
+|* Breakpoints
+\* ------------------------------------------------------------ */
+
+/* Mobile */
+$bp-smaller: 375px;
+$bp-small: 480px;
+
+/* Tablet */
+$bp-tablet: 600px;
+$bp-medium: 768px;
+
+/* Desktop */
+$bp-large: 1024px;
+$bp-larger: 1280px;
+
+$bp-huge: 1440px;
+$bp-gargantuan: 1800px; /* This is becoming a joke! Find a better way to name breakpoints. */
+
+/* ------------------------------------------------------------ *\
+|* Misc
+\* ------------------------------------------------------------ */
+
+$max-app-width: 1400px;
+$post-max-width: 1200px;
+$thin-content-width: 790px;
+$dropdown-close-height: 60px;
+$loading-spinner-size: 28px;
+
+$card-padding-small: 20px;
+$card-padding-medium: 20px;
+$card-padding-large: 25px;
+
+$card-image-height: 245px;
+$card-margin-offset: -40vh;
+$card-gutter-large: 30px;
+
+$vertical-spacing: 50px;
+$vertical-spacing-medium: 80px;
+$vertical-spacing-large: 120px;
+
+/* ------------------------------------------------------------ *\
+|* Global
+\* ------------------------------------------------------------ */
+
+$grid-max-width: 1200px;
+$grid-inner-padding: 120px;
+$core-padding: 6%;
+
+$section-height: 90vh;
+$title-border-bottom: 30px;
+
+/* ------------------------------------------------------------ *\
+|* Blog
+\* ------------------------------------------------------------ */
+
+$category-tag-height: 22px;
+
+$blog-post-list-item-image-height: 245px;
+$blog-post-list-item-excerpt-height: 332px;
+
+$blog-controls-line-height-small: 40px;
+$blog-controls-line-height: 50px;
+$blog-controls-horizontal-padding: 20px;
+$blog-controls-tag-size: 21px;
+$blog-controls-item-width: 230px;
+$blog-controls-dropdown-offset: $blog-controls-line-height * 8;
+$blog-controls-margin-bottom: 52px;
+
+/* ------------------------------------------------------------ *\
+|* Blog & Events
+\* ------------------------------------------------------------ */
+
+$hero-offsetSize-small: 25vh;
+$hero-offsetSize: 40vh;
+
+/* ------------------------------------------------------------ *\
+|* Jobs
+\* ------------------------------------------------------------ */
+
+$jobs-card-height-mobile: 212px;
+$jobs-image-height-mobile: 212px;
+$jobs-slide-height: 312px;
+$jobs-feature-card-padding-mobile: 25px;
+$jobs-feature-card-padding: 50px;
+
+/* ------------------------------------------------------------ *\
+|* Events
+\* ------------------------------------------------------------ */
+
+$events-gutter-large: 30px;
+$events-controls-margin-bottom: 15px;
+$events-margin-offset: -14vh;
+
+$events-list-item-image-height: 245px;
+
+
+/* ------------------------------------------------------------ *\
+|* Hovers
+\* ------------------------------------------------------------ */
+
+$hover-duration-flash: .15s;
+$hover-duration-quick: .2s;
+$hover-duration: .32s;
+$hover-fade-back: .8;
+$hover-scale-up: 1.05;

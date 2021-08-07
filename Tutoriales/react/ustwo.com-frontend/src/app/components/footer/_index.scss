@@ -1,0 +1,244 @@
+/*
+ *  FOOTER
+ *  The bottom bit of the internet website
+ *
+ */
+
+.footer {
+  position: relative;
+  z-index: 10;
+  background-color: $nonBlack;
+  color: $offWhite;
+
+  .content {
+    overflow: auto;
+    @include core-layout();
+    flex-direction: column;
+    padding: 40px 6% 0 6%;
+
+    .contact-title {
+      font-size: 24px;
+      font-family: $PxGroteskRegular;
+      text-transform: capitalize;
+    }
+    .contact-divider {
+      width: 16px;
+      margin: 15px 0;
+      border: 1px solid $offWhite;
+    }
+    .email-cta {
+      position: relative;
+      display: inline-block;
+      width: 150px;
+      height: 40px;
+      margin: 0;
+      margin-top: 2px;
+      padding: 0 35px 0 15px;
+      background: $offWhite;
+      line-height: 40px;
+      color: $nonBlack;
+      font-size: 18px;
+
+      &:after {
+        @include arrow-icon(#F9615B);
+
+        content: "";
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        width: 13px;
+        height: 10px;
+        margin-top: -5px;
+        background-position: 0 0;
+        transform: rotate(180deg);
+      }
+
+      &:hover {
+        border-bottom-color: $offWhite;
+      }
+    }
+
+    .social {
+      list-style: none;
+      padding: 0;
+
+      .channel {
+        display: inline-block;
+        margin: 0 6px;
+
+        @media screen and (min-width: $bp-small) {
+          margin: 0 10px;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 35px;
+          width: 35px;
+          border-radius: 50%;
+          background: rgba(255,255,255,.05);
+          transition: all $hover-duration-quick ease-in-out;
+        }
+        .logo {
+          width: 21px;
+          height: 21px;
+          fill: #fff;
+        }
+        .name {
+          display: none;
+        }
+
+        &.facebook {
+          a {
+            background-color: #3A5998;
+            border-color: #3A5998;
+          }
+        }
+        &.twitter {
+          a {
+            background-color: #32ABE2;
+            border-color: #32ABE2;
+          }
+        }
+        &.linkedin {
+          a {
+            background-color: #069;
+            border-color: #069;
+          }
+        }
+        &.github {
+          a {
+            background-color: #4183c4;
+            border-color: #4183c4;
+          }
+        }
+        &.instagram {
+          a {
+            background-image: linear-gradient(223deg, #5335d3, #ee5933 50%, #f8d168);
+            border-color: #4c68d7;
+          }
+        }
+        &.dribbble {
+          a {
+            background-color: #ea4c89;
+            border-color: #ea4c89;
+          }
+        }
+      }
+    }
+
+    .studios {
+      border-top: 1px solid $nonBlack;
+    }
+
+    .small-print {
+      @extend .small-print-copy;
+      clear: both;
+      display: flex;
+      padding: 60px 0;
+      color: #666;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+
+      a {
+        text-decoration: underline;
+      }
+
+      .copyright {
+        flex: 3;
+        order: 2;
+
+        span {
+          padding-right: 8px;
+        }
+      }
+
+      .social {
+        flex: 2;
+        display: flex;
+        margin-bottom: 15px;
+        justify-content: center;
+        order: 1;
+      }
+
+      li {
+        display: block;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      @media screen and (min-width: $bp-medium) {
+        flex-direction: row;
+
+        .copyright {
+          padding: 0;
+          order: 1;
+        }
+
+        .social {
+          margin-bottom: 0;
+          order: 2;
+        }
+      }
+    }
+  }
+
+
+  @media screen and (min-width: $bp-medium) {
+
+    .content,
+    .subscription {
+      margin: 0 auto;
+    }
+
+    .content {
+      padding: 100px 6% 0 6%;
+
+      .contact-title {
+        margin-bottom: 15px;
+      }
+
+      .contact-divider {
+        display: none;
+      }
+
+      .studios {
+        border-top: none;
+
+        .studio {
+          float: left;
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-large) {
+    .content {
+      padding: 0 6%;
+
+      .studios {
+        display: flex;
+        justify-content: space-between;
+
+        .studio {
+          width: auto;
+        }
+      }
+      .small-print {
+
+        .social {
+          margin-left: 80px;
+
+          li {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

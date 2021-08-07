@@ -1,0 +1,32 @@
+/*
+ *  HOME TEXT BLOCK
+ *  Big blocks of text with a small title
+ *
+ */
+
+.home-text-block {
+  position: relative;
+
+  .home-message-text {
+    @extend .h1;
+  }
+}
+
+.home-text-block-button {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+
+  .text-underline {
+    display: block;
+    position: absolute;
+    bottom: -3px;
+  }
+}
+
+
+.home-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

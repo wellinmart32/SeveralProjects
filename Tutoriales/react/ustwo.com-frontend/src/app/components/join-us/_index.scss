@@ -1,0 +1,267 @@
+/*
+ *  PAGE: JOIN US
+ *  Showcasing ustwo perks and current vaccancies
+ *
+ */
+
+.scroll-wrapper-join-us-hero {
+  padding: 0;
+  height: 100%;
+
+  .scroll-wrapper-inner {
+    height: 100%;
+    max-width: none;
+  }
+}
+
+@keyframes underlineScale {
+  10% {
+    transform: scaleX(1);
+  }
+  40% {
+    transform: scaleX(0.5)
+  }
+  60% {
+    transform: scaleX(0.5);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.page-join-us {
+  height: 100%;
+
+  .single-column {
+    background-color: #fff;
+    padding: 0;
+    padding-bottom: $vertical-spacing;
+    @include core-layout();
+    display: none !important;
+
+    .wrapper {
+      @include core-vertical-padding;
+    }
+
+    @media screen and (min-width: $bp-medium) {
+      padding-bottom: $vertical-spacing-medium;
+    }
+
+    @media screen and (min-width: $bp-large) {
+      padding-bottom: $vertical-spacing-large;
+    }
+
+    hr {
+      @include page-background-colour(join);
+    }
+  }
+
+  .grid {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    .grid-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .grid-cell {
+      position: relative;
+    }
+  }
+
+  .current-openings {
+    text-align: center;
+
+    h2 {
+      @extend .h3;
+      padding: 0 20px;
+      margin-bottom: $title-border-bottom;
+    }
+  }
+
+  .home-main-content-wrapper {
+    background-color: $offWhite;
+  }
+
+  .jobs {
+    position: relative;
+    padding-top: 10px;
+  }
+
+  .jobs-studio-tabs {
+    display: none;
+    margin-bottom: 30px;
+    text-align: center;
+
+    .tab {
+      display: inline-block;
+      margin: 0 20px 10px 20px;
+      cursor: pointer;
+      font-family: $Futura;
+      font-size: 24px;
+      text-transform: uppercase;
+      color: $nonBlack;
+      transition: opacity $hover-duration-quick ease-out, color .32s linear;
+
+      &:hover:not([aria-selected="true"]) {
+        opacity: $hover-fade-back;
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    .grid {
+      padding-top: 0;
+    }
+
+    .benefits {
+      height: 312px;
+    }
+
+    .jobs-studio-tabs {
+      position: relative;
+      display: block;
+      max-width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .underline {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: 150px;
+        transition: all .3s ease-in-out;
+
+        &.underline-london {
+          @include page-background-colour(london);
+        }
+        &.underline-malmo {
+          @include page-background-colour(malmo);
+        }
+        &.underline-new-york {
+          @include page-background-colour(newyork);
+        }
+        &.underline-sydney {
+          @include page-background-colour(sydney);
+        }
+      }
+
+      &.animate .underline {
+        animation: underlineScale .5s 1;
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-large) {
+    .jobs-studio-tabs {
+      margin-bottom: 45px;
+
+      li {
+        font-size: 26px;
+      }
+    }
+  }
+}
+
+.content-wrapper-join-video .content-wrapper-inner {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.content-wrapper-join-intro,
+.content-wrapper-join-video,
+.content-wrapper-join-extra {
+  background: white;
+}
+
+.join-us-hero {
+  .hero {
+    @include page-background-colour(join);
+
+    .rimage {
+      max-width: 800px;
+    }
+  }
+
+  .hero-image {
+    background-image: url('/images/join-us/hero-mobile.png');
+    background-repeat: no-repeat;
+    background-position: 50% bottom;
+    background-size: 100% auto;
+    width: 48%;
+    max-width: 300px;
+
+    &:after {
+      content: "";
+      position: absolute; // 142 x 255
+      background: url('/images/join-us/hero-crow.png') no-repeat 50% 50%;
+      width: 50px;
+      height: 100px;
+      left: 0;
+      bottom: 4%;
+      transform: translateX(-70px);
+      background-size: 100% auto;
+    }
+  }
+
+  @media screen and (min-width: $bp-tablet) {
+    .hero-image {
+      &:after {
+        width: 65px;
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    .hero-image {
+      &:after {
+        bottom: 8%;
+        transform: translateX(-110px);
+      }
+    }
+  }
+
+  @media screen and (min-width: $bp-large) {
+    .hero {
+      h1 {
+        width: 60%;
+      }
+    }
+    .hero-image {
+      background-image: url('/images/join-us/hero-main.png');
+      width: 500px;
+      right: auto;
+      left: 60%;
+      max-width: none;
+      background-position: 0 70%;
+
+      &:before {
+        content: "";
+        position: absolute;
+        background-image: url('/images/join-us/hero-phone-inner.jpg'); // 508 x 902
+        background-size: 100% auto;
+        right: 48px;
+        top: calc(70% - 328px);
+        width: 224px;
+        height: 397px;
+      }
+
+      &:after {
+        bottom: 10%;
+        transform: translateX(-60px);
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+/*
+ *  TESTIMONIAL CAROUSEL
+ *	Displays testimonials in a carousel
+ *
+ */
+
+.testimonial-carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(212deg, #000000, #322d37);
+  color: $offWhite;
+
+  &.twitterAuto {
+    background-image: linear-gradient(212deg, $auto, $honey);
+    color: $nonBlack;
+
+    .testimonial-icon {
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .tesimonial-button-next svg {
+      fill: $nonBlack;
+    }
+
+    .testimonial-smallprint {
+      color: $nonBlack;
+    }
+
+    .testimonial-company {
+      background-image: none;
+      color: black;
+      background-clip: initial;
+    }
+
+    p a {
+      text-decoration: underline;
+    }
+  }
+}
+
+.testimonial-content {
+  text-align: center;
+}
+
+.testimonial-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s linear .2s, opacity .2s linear;
+
+  p {
+    font-size: 20px;
+    line-height: 1.33;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s, .2s;
+  }
+}
+
+.testimonial-name {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.testimonial-smallprint {
+  color: $offWhite;
+  margin-top: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.testimonial-title {
+  opacity: .6;
+}
+
+.testimonial-company {
+  color: transparent;
+  -webkit-background-clip: text; /* Seems we can't rely on autoprefixer for this */
+  background-clip: text;
+  position: relative;
+  background-image: linear-gradient(to right, $mare, $jeezz);
+}
+
+
+.tesimonial-button-next {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  svg {
+    fill: $offWhite;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: $bp-small) {
+  .testimonial-item {
+    p {
+      font-size: 30px;
+    }
+  }
+}
+
+@media screen and (min-width: $bp-medium) {
+  .testimonial-item {
+    width: 560px;
+
+    p {
+      font-size: 36px;
+    }
+  }
+  .tesimonial-button-next {
+    bottom: 60px;
+  }
+}
+
+@media screen and (min-width: $bp-large) {
+  .testimonial-item {
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: $bp-larger) {
+  .testimonial-item {
+    width: 1000px;
+  }
+}

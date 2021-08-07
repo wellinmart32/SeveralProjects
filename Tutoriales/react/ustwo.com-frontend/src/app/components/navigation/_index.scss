@@ -1,0 +1,354 @@
+/*
+ *  NAVIGATION
+ *  Includes the site navigation and logo
+ *
+ */
+
+html {
+  .menu-no-js {
+    display: block;
+
+    li {
+      display: inline-block;
+      margin: 0 10px;
+
+      a {
+        display: block;
+      }
+    }
+  }
+
+  &.js .menu-no-js {
+    display: none;
+  }
+}
+
+$nav-height-small: 23px;
+$nav-height-large: 31px;
+
+.navigation {
+  position: fixed;
+  pointer-events: auto;
+  top: 0;
+  padding: 20px 0;
+  right: 0;
+  left: 0;
+  z-index: 4000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (min-width: $bp-medium) {
+    left: auto;
+
+    &.subPage {
+      left: 0;
+    }
+  }
+
+  .navigation-subpage-nav {
+    position: relative;
+    z-index: 9999;
+    transition-delay: .32s;
+
+    button {
+      text-transform: uppercase;
+      margin-left: 20px;
+      padding-left: 30px;
+      background-image: url('/images/icon-left-dark.svg');
+      background-position: 0 50%;
+      background-repeat: no-repeat;
+      background-size: 20px auto;
+      cursor: pointer;
+      transition: all .2s linear;
+      text-align: left;
+    }
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    padding: 29px 0;
+  }
+
+  @media screen and (min-width: $bp-large) {
+    padding: 27px 0;
+  }
+}
+
+.navigation-buttons {
+  display: flex;
+  z-index: 1;
+
+  > div {
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left; // FIX FF?!
+  }
+
+  .svg-sequence {
+    pointer-events: none;
+  }
+}
+
+.navigation-toggle {
+  position: relative;
+  margin: 0 18px 0 12px;
+  cursor: pointer;
+  height: 40px;
+
+  @media screen and (min-width: $bp-smaller) {
+    margin: 0 22px 0 14px;
+  }
+  @media screen and (min-width: $bp-medium) {
+    margin: 0 26px 0 16px;
+  }
+}
+
+.navigation-toggle-main {
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+  pointer-events: none; /* Fixes intermittent issue on touch devices? */
+  border-radius: 50%;
+  border: 2px solid $nonBlack;
+  width: $nav-height-small;
+  height: $nav-height-small;
+  box-sizing: content-box;
+  transition: all .2s linear;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: $nonBlack;
+    transition: all .2s linear;
+  }
+
+  &:before {
+    left: calc(50% - 5px);
+    top: calc(50% - 1px - 2px);
+  }
+  &:after {
+    left: calc(50% - 5px);
+    top: calc(50% - 1px + 2px);
+  }
+
+  @media screen and (min-width: $bp-large) {
+    border-width: 3px;
+    width: $nav-height-large;
+    height: $nav-height-large;
+
+    &:before,
+    &:after {
+      height: 3px;
+      width: 15px;
+    }
+
+    &:before {
+      left: calc(50% - 8px);
+      top: calc(50% - 1px - 3px);
+    }
+    &:after {
+      left: calc(50% - 8px);
+      top: calc(50% - 1px + 3px);
+    }
+  }
+}
+
+.navigation-toggle-ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  fill: $pot;
+  // transition: all .2s ease-in-out;
+  width: 40px;
+  height: 40px;
+  margin-left: -7px;
+  margin-top: 0;
+
+  @media screen and (min-width: $bp-smaller) {
+    width: 42px;
+    height: 42px;
+    margin-left: -7px;
+    margin-top: -1px;
+  }
+
+  @media screen and (min-width: $bp-large) {
+    width: 56px;
+    height: 56px;
+    margin-left: -10px;
+    margin-top: -9px;
+  }
+}
+
+.navigation.home .navigation-toggle-ring {
+  fill: $jeezz;
+}
+
+.navigation.work .navigation-toggle-ring {
+  fill: $honey;
+}
+
+.navigation.events .navigation-toggle-ring {
+  fill: $piglet;
+}
+
+.navigation.blog .navigation-toggle-ring {
+  fill: $blu;
+}
+
+.navigation.join-us .navigation-toggle-ring {
+  fill: $rain;
+}
+
+.navigation.contact .navigation-toggle-ring {
+  fill: $pot;
+}
+
+// NAVIGATION BACKGROUND, VARIATIONS ETC
+.navigation {
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background: white;
+    transition: all .2s linear;
+    opacity: 0.88;
+  }
+  .navigation-logo {
+    display: flex;
+    overflow: visible;
+    cursor: pointer;
+    height: 40px;
+
+    svg {
+      pointer-events: none;
+      fill: $nonBlack;
+      width: 112px;
+      transition: fill .2s linear;
+      height: $nav-height-small;
+      width: 85px;
+
+      @media screen and (min-width: $bp-large) {
+        width: 112px;
+        height: $nav-height-large;
+      }
+    }
+  }
+
+  &.invert,
+  &.discovery-strategy,
+  &.design-build,
+  &.launch-scale,
+  &.change-transform {
+    &:before {
+      background-color: $c-solid;
+    }
+    .navigation-logo svg {
+      fill: white;
+    }
+    .navigation-toggle-main {
+      border-color: white;
+
+      &:before,
+      &:after {
+        background-color: white;
+      }
+    }
+    .navigation-subpage-nav button {
+      color: white;
+      background-image: url('/images/icon-left-light.svg');
+    }
+  }
+
+  &.menuOpen,
+  &.notfound,
+  &.overHero:not(.post, .case-study, .event, .humanisingautonomy) {
+    &:before {
+      background: transparent !important;
+    }
+    .navigation-logo svg {
+      fill: white;
+    }
+    .navigation-toggle-main {
+      border-color: white;
+
+      &:before,
+      &:after {
+        background-color: white;
+      }
+    }
+    .navigation-subpage-nav button {
+      color: white;
+      background-image: url('/images/icon-left-light.svg');
+    }
+  }
+
+  @media screen and (min-width: $bp-medium) {
+    &:before {
+      background: transparent !important;
+    }
+  }
+}
+
+.page-home {
+  .navigation {
+    &.invert {
+      &:before {
+        background-color: $v-solid;
+      }
+    }
+  }
+}
+
+.navigation {
+  &.menuOpen {
+    .navigation-subpage-nav {
+      opacity: 0;
+      transition: none;
+      pointer-events: none;
+    }
+
+    .navigation-toggle-main {
+      &:before {
+        transform: rotate(45deg) translate(2px,2px);
+      }
+      &:after {
+        transform: rotate(-45deg) translate(1px,-1px);
+      }
+      @media screen and (min-width: $bp-large) {
+        &:before {
+          transform: rotate(45deg) translate(2px,2px);
+        }
+        &:after {
+          transform: rotate(-45deg) translate(2px,-2px);
+        }
+      }
+    }
+  }
+}
+
+// Hide ustwo logo over hero
+.page-home .navigation {
+  & {
+    navigation-logo {
+      opacity: 1;
+      transition: opacity .2s linear;
+    }
+
+    &.overHero {
+      .navigation-logo {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}

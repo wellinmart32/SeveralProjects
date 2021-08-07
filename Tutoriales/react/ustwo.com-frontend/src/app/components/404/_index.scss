@@ -1,0 +1,50 @@
+/*
+ *  404 page
+ *  Not found
+ *
+ *  Notes: Not found
+ *  TODO: Not found
+ */
+
+.page-404 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  @include page-background-colour(notfound);
+
+  p {
+    position: relative;
+    z-index: 1;
+    color: $offWhite;
+    padding: 0 7%;
+  }
+
+  button {
+    cursor: pointer;
+    display: inline-block;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    font-family: $PxGroteskBold;
+  }
+}
+
+.page-404-large-text {
+  font-family: $Futura;
+  opacity: 0.3;
+  font-size: 30rem;
+  font-weight: 900;
+  line-height: 1;
+  font-size: 40vw;
+  color: $offWhite;
+}
+
+@media screen and (max-width: $bp-small) {
+  .page-404 {
+    p br {
+      display: none;
+    }
+  }
+}

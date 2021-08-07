@@ -1,0 +1,34 @@
+/*
+ *  PAGE: LEGAL
+ *  Simple page that holds some of the legal gumpf
+ *
+ *  TODO: Perhaps we need to make this a generic template page for other such small, relatively styless pages?
+ */
+
+.page-legal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .hero-image {
+    height: 320px;
+    @include page-background-colour(legal);
+  }
+
+  .content-container {
+    position: relative;
+    max-width: 1200px;
+    padding: 70px 50px;
+    background: #fff;
+
+    h2,
+    h3 {
+      margin-top: 40px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
